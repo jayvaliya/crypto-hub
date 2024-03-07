@@ -1,23 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import Home from './pages/Home';
+import CoinInfo from './pages/CoinInfo'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='m-0 p-0 box-border overflow-auto font-["Rubik Doodle Triangles"] bg-[#EFF2F5] w-screen h-screen'>
+      <BrowserRouter>
+      <Navbar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/coin/:id' element={<CoinInfo />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
