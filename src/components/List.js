@@ -94,7 +94,7 @@ const List = () => {
                     </td>
                     <td>${item.market_cap}</td>
                     <td>
-                      {/* <LineChart sparkline={item.sparkline_in_7d} /> */}
+                      <LineChart sparkline={item.sparkline_in_7d} />
                     </td>
                   </tr>
                 ))}
