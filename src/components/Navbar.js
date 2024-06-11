@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../images/logo2.png';
+import logo from '../images/logo.png';
 
 const NavigationItem = ({ label, to }) => (
   <li>
-    <Link className='text-gray-800 transition hover:text-gray-500' to={to}>
+    <Link className='text-white transition hover:text-teal-300 hover:border-b-2 hover:border-teal-300 ' to={to}>
       {label}
     </Link>
   </li>
@@ -18,18 +18,19 @@ const Navbar = () => {
   };
 
   const navigationItems = [
-    { label: 'Crypto Texes', to: '/#' },
-    { label: 'Free Tools', to: '/#' },
-    { label: 'Resource Center', to: '/#' },
+    { label: 'Home', to: '/' },
+    { label: 'Crypto Texes', to: '/Taxes' },
+    { label: 'Resource Center', to: '/Resources' },
   ];
 
   return (
-    <header className='bg-white shadow-lg'>
+    <header className='bg-zinc-800 shadow-lg'>
       <div className='mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8'>
         <div className='flex h-16 items-center justify-between'>
           <div className='md:flex md:items-center md:gap-12'>
-            <Link to="/" className='block text-blue-600'>
-              <img src={logo} alt='Logo' />
+            <Link to="/" className='flex items-center gap-3'>
+              <img className='w-12 h-12' src={logo} alt='Logo' />
+              <span className='text-2xl font-semibold'>Crypto Hub</span>
             </Link>
           </div>
 
@@ -44,19 +45,9 @@ const Navbar = () => {
           </div>
 
           <div className='flex items-center gap-4'>
-            <div className='sm:flex sm:gap-4 text-base'>
-              <div className='hidden sm:flex'>
-                <Link
-                  className='rounded-md px-5 py-2 font-medium text-white bg-blue-600'
-                  to='/signup'>
-                  Get Started
-                </Link>
-              </div>
-            </div>
-
             <div className='block md:hidden'>
               <button
-                className='rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75'
+                className='rounded bg-gray-100 p-2 text-gray-600 transition hover:text-teal-600 hover:shado'
                 onClick={toggleMobileMenu}>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'

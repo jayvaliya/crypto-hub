@@ -9,6 +9,7 @@ const LineChert = ({ id, days }) => {
     chart: {
       type: 'area',
       height: 350,
+      background: 'transperent',
     },
     title: {
       text: 'Line Chart',
@@ -16,22 +17,31 @@ const LineChert = ({ id, days }) => {
     },
     xaxis: {
       type: 'datetime',
+      labels: {
+        style: {
+          colors: '#fff',
+        },
+      },
     },
     yaxis: {
+      labels: {
+        style: {
+          colors: '#fff',
+        },
+      },
       tooltip: {
         enabled: true,
       },
+    },
+    theme:{
+      mode: 'dark',
     },
     stroke: {
         curve: 'smooth', // Smooth curve
         width: 2, // Adjust the line width (e.g., 2 for thicker)
       },
     series: [{ name: 'price', data: graphData }],
-    series: [
-      {
-        data: graphData,
-      },
-    ],
+    
     dataLabels: {
       enabled: false,
     },
@@ -42,7 +52,7 @@ const LineChert = ({ id, days }) => {
         opacityFrom: 0.7,
         opacityTo: 0.1,
         stops: [0, 100],
-        gradientToColors: ['#0000FF'],
+        gradientToColors: ['#0d9488'],
         inverseColors: true,
         shade: 'vertical',
       },

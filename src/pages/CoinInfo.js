@@ -1,33 +1,40 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
-import GetStarted from '../components/GetStarted';
+import React, { useCallback, useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import Chart from '../components/Chart';
 import About from '../components/About';
 import Performance from '../components/Performance';
 
 const CoinInfo = () => {
   const { id } = useParams();
-  const [data, setData] = useState('30');
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const url = `https://api.coingecko.com/api/v3/coins/${id}?localization=false&tickers=false`;
 
-  const fetchData = async (e) => {
+  const fetchData = useCallback(async () => {
     try {
+      setLoading(true);
+      setError(null);
       console.log('Fetching data....');
       const fetchedData = await fetch(url);
+      if (!fetchedData.ok) {
+        throw new Error('Network response was not ok');
+      }
       const jsondata = await fetchedData.json();
-      await setData(jsondata);
-      console.log(data);
+      setData(jsondata);
+      console.log(jsondata);
     } catch (err) {
       console.log('Unable to fetch data...!!  :<');
       console.log(err);
+      setError('Unable to fetch data');
+    } finally {
+      setLoading(false);
     }
-  };
+  }, [url]);
 
   useEffect(() => {
     fetchData();
-    console.log("data in coin info", data);
-  }, [])
+  }, [fetchData]);
 
   return (
     <div className='container mx-auto p-4'>
@@ -39,12 +46,17 @@ const CoinInfo = () => {
       </div>
       <div className='flex flex-col sm:flex-row gap-6'>
         <div className='w-full sm:w-2/3'>
-          <Chart data={data} id={id} />
-          <Performance data={data} />
-          <About data={data} />
-        </div>
-        <div className='w-full sm:w-1/3 mt-4 sm:mt-0'>
-          <GetStarted />
+          {loading ? (
+            <div>Loading...</div>
+          ) : error ? (
+            <div>{error}</div>
+          ) : (
+            <>
+              <Chart data={data} id={id} />
+              <Performance data={data} />
+              <About data={data} />
+            </>
+          )}
         </div>
       </div>
     </div>

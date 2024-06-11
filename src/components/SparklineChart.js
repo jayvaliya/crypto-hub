@@ -7,6 +7,10 @@ const LineChart = ({ sparkline }) => {
       type: 'area',
       width: '500px',
       sparkline: { enabled: true },
+      background: 'transparent',
+    },
+    theme: {
+      mode: 'dark',
     },
     fill: {
       type: 'gradient',
@@ -15,14 +19,13 @@ const LineChart = ({ sparkline }) => {
         opacityFrom: 0.3,
         opacityTo: 0.1,
         stops: [0, 100],
-        gradientToColors: ['#0000FF'],
+        gradientToColors: ['#0d9488'],
         inverseColors: true,
         shade: 'vertical'
       }
     },
     tooltip: {
       shared: false,
-      fillSeriesColor: 'black',
       x: { show: false },
       y: { show: false },
     },
@@ -38,7 +41,7 @@ const LineChart = ({ sparkline }) => {
   };
 
   return (
-    <div className='app mx-auto w-fit'>
+    <div className='app mx-auto w-fit hover:cursor-none'>
       <Chart
         options={chartOptions}
         series={chartOptions.series}

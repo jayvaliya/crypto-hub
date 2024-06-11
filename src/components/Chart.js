@@ -18,16 +18,16 @@ export default function Chart({ data, id }) {
   }
   return (
     <div className='container mx-auto'>
-      <div className='bg-white rounded-lg p-6'>
+      <div className='bg-zinc-800 rounded-lg p-6'>
         <div className='flex flex-col md:flex-row md:items-center justify-between mb-4'>
           <div className='flex flex-col md:flex-row md:items-center'>
-            <img loading='lazy' src={imgLink} className='w-12 h-12' />
+            <img loading='lazy' src={imgLink} className='w-12 h-12' alt='' />
             <div className='flex flex-col justify-center md:pl-2 mt-1'>
               <div className='flex gap-0'>
-                <div className='text-xl font-semibold text-slate-900'>
+                <div className='text-xl font-semibold'>
                   {name}
                 </div>
-                <div className='text-base text-gray-500'>{symbol}</div>
+                <div className='text-base'>{symbol}</div>
               </div>
             </div>
           </div>
@@ -36,7 +36,7 @@ export default function Chart({ data, id }) {
           </div>
         </div>
         <div className='flex flex-col md:flex-row justify-between items-center mt-4 md:max-w-full'>
-          <div className='flex flex-col text-slate-900'>
+          <div className='flex flex-col'>
             <div className='text-2xl font-semibold'>{`$${currentPriceUSD}`}</div>
             <div className='text-base font-medium'>{`₹${currentPriceINR}`}</div>
           </div>
@@ -50,16 +50,16 @@ export default function Chart({ data, id }) {
                 } rounded`}>
                 {change24h}%
               </div>
-              <div className='text-sm text-slate-500'>(24H)</div>
+              <div className='text-sm'>(24H)</div>
             </div>
           </div>
         </div>
         <div className='mt-6 max-w-full h-px bg-zinc-200 md:mr-2.5' />
         <div className='flex flex-col md:flex-row justify-between items-center mt-6'>
-          <div className='font-bold text-base text-slate-900'>
+          <div className='font-bold text-base'>
             {`${name} Price Chart (USD)`}
           </div>
-          <div className='flex items-center gap-2 text-sm text-gray-500 mx-2'>
+          <div className='flex items-center gap-2 text-sm  mx-2'>
             <span>Graph:</span>
             <button
               onClick={() => setGraphType('line')}
@@ -80,7 +80,7 @@ export default function Chart({ data, id }) {
               Candlestick
             </button>
           </div>
-          <div className='flex gap-2 items-center text-sm text-gray-500'>
+          <div className='flex gap-2 items-center text-sm '>
             <span>Days:</span>
             {daysList.map((item) => (
               <button

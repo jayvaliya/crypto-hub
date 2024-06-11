@@ -6,7 +6,7 @@ const List = () => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
 
-  const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=${page}&sparkline=true&price_change_percentage=1h%2C24h%2C7d&locale=en&precision=2`;
+  const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=30&page=${page}&sparkline=true&price_change_percentage=1h%2C24h%2C7d&locale=en&precision=2`;
 
   const fetchData = async () => {
     try {
@@ -38,11 +38,11 @@ const List = () => {
   return (
     <>
       {data.length !== 0 ? (
-        <div className='container mx-auto p-3'>
+        <div className='container mx-auto mt-5 md:mt-10 p-3'>
           <div className='overflow-x-auto'>
-            <table className='w-full table-auto text-center bg-white border-transparent rounded-lg overflow-hidden p-6'>
+            <table className='w-full table-auto text-center text-white border-transparent rounded-lg overflow-hidden'>
               <thead className='text-base font-semibold'>
-                <tr>
+                <tr className='p-7'>
                   <th>Rank</th>
                   <th>Asset</th>
                   <th>Name</th>
