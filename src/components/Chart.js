@@ -21,7 +21,7 @@ export default function Chart({ data, id }) {
       <div className='bg-zinc-800 rounded-lg p-6'>
         <div className='flex flex-col md:flex-row md:items-center justify-between mb-4'>
           <div className='flex flex-col md:flex-row md:items-center'>
-            <img loading='lazy' src={imgLink} className='w-12 h-12' alt='' />
+            <img loading='lazy' src={imgLink} className='w-12 h-12' alt='img' />
             <div className='flex flex-col justify-center md:pl-2 mt-1'>
               <div className='flex gap-0'>
                 <div className='text-xl font-semibold'>

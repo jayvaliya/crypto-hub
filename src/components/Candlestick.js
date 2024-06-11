@@ -1,25 +1,25 @@
-import React, { memo, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Chart from 'react-apexcharts';
 
 const Candlestick = ({ id, days }) => {
   const [graphData, setGraphData] = useState();
   const url = `https://api.coingecko.com/api/v3/coins/${id}/ohlc?vs_currency=usd&days=${days}&precision=2`;
 
-  async function fetchGraph() {
-    try {
-      const fetchedData = await fetch(url);
-      const jsonData = await fetchedData.json();
-      setGraphData(jsonData);
-    } catch (error) {
-      console.log('Unable to fetch graphData');
-      console.log(error);
-    }
-  }
-
+  
   useEffect(() => {
+    async function fetchGraph() {
+      try {
+        const fetchedData = await fetch(url);
+        const jsonData = await fetchedData.json();
+        setGraphData(jsonData);
+      } catch (error) {
+        console.log('Unable to fetch graphData');
+        console.log(error);
+      }
+    }
     console.log('Fetching graph.....');
     fetchGraph();
-  }, [days]);
+  }, [days, id, url]);
 
   const options = {
     chart: {
@@ -72,4 +72,4 @@ const Candlestick = ({ id, days }) => {
   );
 };
 
-export default memo(Candlestick);
+export default(Candlestick);

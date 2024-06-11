@@ -1,5 +1,4 @@
-// src/components/Performance.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 function Performance({ data }) {
   const [low, setLow] = useState(null);
@@ -10,38 +9,55 @@ function Performance({ data }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const fetchWithRetry = useCallback(async (url, retries = 3, delay = 1000) => {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        if (response.status === 429 && retries > 0) {
+          // Too Many Requests - wait and retry
+          await new Promise((resolve) => setTimeout(resolve, delay));
+          return fetchWithRetry(url, retries - 1, delay * 2); // Exponential backoff
+        }
+        throw new Error(`Failed to fetch: ${response.statusText}`);
+      }
+      return response.json();
+    } catch (error) {
+      if (retries > 0) {
+        await new Promise((resolve) => setTimeout(resolve, delay));
+        return fetchWithRetry(url, retries - 1, delay * 2);
+      }
+      throw error;
+    }
+  }, []);
+
   useEffect(() => {
     const fetchMarketData = async () => {
       try {
-        const response = await fetch(
+        const marketData = await fetchWithRetry(
           `https://api.coingecko.com/api/v3/coins/${data.id}/market_chart?vs_currency=usd&days=1`
         );
-        const marketData = await response.json();
-        
+
         if (!marketData.prices || marketData.prices.length === 0) {
           throw new Error('Market data is empty or invalid');
         }
-        
+
         const prices = marketData.prices.map((price) => price[1]);
         setLow(Math.min(...prices));
         setHigh(Math.max(...prices));
 
-        const currentResponse = await fetch(
+        const currentData = await fetchWithRetry(
           `https://api.coingecko.com/api/v3/coins/${data.id}?localization=false&tickers=false&market_data=true`
         );
-        const currentData = await currentResponse.json();
-        
+
         if (!currentData.market_data || !currentData.market_data.current_price) {
           throw new Error('Current data is empty or invalid');
         }
 
         setCurrent(currentData.market_data.current_price.usd);
 
-        // Fetch 52-week high and low prices
-        const yearDataResponse = await fetch(
+        const yearMarketData = await fetchWithRetry(
           `https://api.coingecko.com/api/v3/coins/${data.id}/market_chart?vs_currency=usd&days=365`
         );
-        const yearMarketData = await yearDataResponse.json();
 
         if (!yearMarketData.prices || yearMarketData.prices.length === 0) {
           throw new Error('52-week market data is empty or invalid');
@@ -54,7 +70,7 @@ function Performance({ data }) {
         setLoading(false);
       } catch (error) {
         console.error('Error:', error);
-        setError('Unable to fetch data');
+        setError(error.message);
         setLoading(false);
       }
     };
@@ -62,7 +78,7 @@ function Performance({ data }) {
     if (data.id) {
       fetchMarketData();
     }
-  }, [data.id]);
+  }, [data.id, fetchWithRetry]);
 
   if (loading) {
     return <div>Loading...</div>;

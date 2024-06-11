@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Chart from 'react-apexcharts';
 
-const LineChert = ({ id, days }) => {
-  console.log("id",id);
-  const [graphData, setGraphData] = useState();
-  const url = `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=${days}&precision=2`;
+const LineChart = ({ id, days }) => {
+  console.log('id', id);
+  const [graphData, setGraphData] = useState([]);
+  const [error, setError] = useState(null);
+
   const options = {
     chart: {
       type: 'area',
       height: 350,
-      background: 'transperent',
+      background: 'transparent',
     },
     title: {
       text: 'Line Chart',
@@ -33,15 +34,13 @@ const LineChert = ({ id, days }) => {
         enabled: true,
       },
     },
-    theme:{
+    theme: {
       mode: 'dark',
     },
     stroke: {
-        curve: 'smooth', // Smooth curve
-        width: 2, // Adjust the line width (e.g., 2 for thicker)
-      },
-    series: [{ name: 'price', data: graphData }],
-    
+      curve: 'smooth', // Smooth curve
+      width: 2, // Adjust the line width (e.g., 2 for thicker)
+    },
     dataLabels: {
       enabled: false,
     },
@@ -58,34 +57,39 @@ const LineChert = ({ id, days }) => {
       },
     },
   };
-  async function fetchLineGraph() {
+
+  const fetchLineGraph = useCallback(async () => {
+    const url = `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=${days}&precision=2`;
     try {
       const fetchedData = await fetch(url);
+      if (fetchedData.status === 429) {
+        throw new Error('Too many requests. Please try again later.');
+      }
       const jsonData = await fetchedData.json();
       setGraphData(jsonData.prices);
     } catch (error) {
-      console.log('Unable to fetch graphData');
-      console.log(error);
+      console.error('Unable to fetch graphData', error);
+      setError(error.message);
     }
-  }
+  }, [id, days]);
 
   useEffect(() => {
-    console.log('Fetching lineGraph.....');
     fetchLineGraph();
-    console.log(graphData);
-  }, [days]);
+  }, [fetchLineGraph]);
 
   return (
-    graphData && (
-      <Chart
-        options={options}
-        series={options.series}
-        type='area'
-        // width='600'
-        height='400'
-      />
-    )
+    <>
+      {error && <div>{error}</div>}
+      {graphData.length > 0 && (
+        <Chart
+          options={options}
+          series={[{ name: 'price', data: graphData }]}
+          type='area'
+          height='400'
+        />
+      )}
+    </>
   );
 };
 
-export default LineChert;
+export default LineChart;
