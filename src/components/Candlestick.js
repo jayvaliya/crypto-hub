@@ -1,25 +1,40 @@
 import React, { useEffect, useState } from 'react';
 import Chart from 'react-apexcharts';
 
+const graphDataCache = {};
+
 const Candlestick = ({ id, days }) => {
   const [graphData, setGraphData] = useState();
+  const [error, setError] = useState(null);
   const url = `https://api.coingecko.com/api/v3/coins/${id}/ohlc?vs_currency=usd&days=${days}&precision=2`;
 
-  
-  useEffect(() => {
-    async function fetchGraph() {
-      try {
-        const fetchedData = await fetch(url);
-        const jsonData = await fetchedData.json();
-        setGraphData(jsonData);
-      } catch (error) {
-        console.log('Unable to fetch graphData');
-        console.log(error);
+  const fetchGraphData = async () => {
+    try {
+      // Check if data is already cached
+      if (graphDataCache[url]) {
+        setGraphData(graphDataCache[url]);
+        return;
       }
+
+      console.log('Fetching data from API');
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error('Failed to fetch data');
+      }
+      const data = await response.json();
+
+      // Cache the data
+      graphDataCache[url] = data;
+      setGraphData(data);
+    } catch (err) {
+      console.error('Error fetching graph data:', err);
+      setError(err.message);
     }
-    console.log('Fetching graph.....');
-    fetchGraph();
-  }, [days, id, url]);
+  };
+
+  useEffect(() => {
+    fetchGraphData();
+  }, [url]);
 
   const options = {
     chart: {
@@ -57,10 +72,18 @@ const Candlestick = ({ id, days }) => {
     },
     series: [
       {
-        data: graphData,
+        data: graphData || [],
       },
     ],
   };
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  if (!graphData) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <Chart
@@ -72,4 +95,4 @@ const Candlestick = ({ id, days }) => {
   );
 };
 
-export default(Candlestick);
+export default Candlestick;

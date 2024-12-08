@@ -16,7 +16,7 @@ function Performance({ data }) {
         if (response.status === 429 && retries > 0) {
           // Too Many Requests - wait and retry
           await new Promise((resolve) => setTimeout(resolve, delay));
-          return fetchWithRetry(url, retries - 1, delay * 2); // Exponential backoff
+          return fetchWithRetry(url, retries - 1, delay * 2);
         }
         throw new Error(`Failed to fetch: ${response.statusText}`);
       }
@@ -49,7 +49,10 @@ function Performance({ data }) {
           `https://api.coingecko.com/api/v3/coins/${data.id}?localization=false&tickers=false&market_data=true`
         );
 
-        if (!currentData.market_data || !currentData.market_data.current_price) {
+        if (
+          !currentData.market_data ||
+          !currentData.market_data.current_price
+        ) {
           throw new Error('Current data is empty or invalid');
         }
 
@@ -113,8 +116,7 @@ function Performance({ data }) {
             <div className='absolute left-0 top-0 bottom-0 w-2 bg-black'></div>
             <div
               className='absolute transform -translate-x-1/2 w-10 h-10 text-center'
-              style={{ left: `${percentage24h}%` }}
-            >
+              style={{ left: `${percentage24h}%` }}>
               ▲ ${formatPrice(current)}
             </div>
           </div>
@@ -132,8 +134,7 @@ function Performance({ data }) {
             <div className='absolute left-0 top-0 bottom-0 w-2 bg-black'></div>
             <div
               className='absolute transform -translate-x-1/2 w-10 h-10 text-center'
-              style={{ left: `${percentage52w}%` }}
-            >
+              style={{ left: `${percentage52w}%` }}>
               ▲ ${formatPrice(current)}
             </div>
           </div>

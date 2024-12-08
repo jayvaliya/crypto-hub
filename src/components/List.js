@@ -8,6 +8,10 @@ const List = () => {
   const [error, setError] = useState(null);
 
   const fetchData = useCallback(async () => {
+    if (data.length !== 0) {
+      return;
+    }
+
     const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=30&page=${page}&sparkline=true&price_change_percentage=1h%2C24h%2C7d&locale=en&precision=2`;
     try {
       console.log('Fetching data....');
@@ -17,7 +21,7 @@ const List = () => {
       }
       const jsondata = await fetchedData.json();
       setData(jsondata);
-      setError(null); // Clear previous errors on successful fetch
+      setError(null);
       console.log(jsondata);
     } catch (err) {
       console.error('Unable to fetch data:', err);
@@ -80,27 +84,29 @@ const List = () => {
                           item.price_change_percentage_1h_in_currency >= 0
                             ? 'text-green-600'
                             : 'text-red-600'
-                        }`}
-                      >
-                        {item.price_change_percentage_1h_in_currency.toFixed(3)}%
+                        }`}>
+                        {item.price_change_percentage_1h_in_currency.toFixed(3)}
+                        %
                       </td>
                       <td
                         className={`${
                           item.price_change_percentage_24h_in_currency >= 0
                             ? 'text-green-600'
                             : 'text-red-600'
-                        }`}
-                      >
-                        {item.price_change_percentage_24h_in_currency.toFixed(3)}%
+                        }`}>
+                        {item.price_change_percentage_24h_in_currency.toFixed(
+                          3
+                        )}
+                        %
                       </td>
                       <td
                         className={`${
                           item.price_change_percentage_7d_in_currency >= 0
                             ? 'text-green-600'
                             : 'text-red-600'
-                        }`}
-                      >
-                        {item.price_change_percentage_7d_in_currency.toFixed(3)}%
+                        }`}>
+                        {item.price_change_percentage_7d_in_currency.toFixed(3)}
+                        %
                       </td>
                       <td>${item.market_cap.toLocaleString()}</td>
                       <td>

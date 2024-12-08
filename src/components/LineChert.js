@@ -5,6 +5,7 @@ const LineChart = ({ id, days }) => {
   console.log('id', id);
   const [graphData, setGraphData] = useState([]);
   const [error, setError] = useState(null);
+  const [cache, setCache] = useState({});
 
   const options = {
     chart: {
@@ -38,8 +39,8 @@ const LineChart = ({ id, days }) => {
       mode: 'dark',
     },
     stroke: {
-      curve: 'smooth', // Smooth curve
-      width: 2, // Adjust the line width (e.g., 2 for thicker)
+      curve: 'smooth',
+      width: 2,
     },
     dataLabels: {
       enabled: false,
@@ -59,6 +60,13 @@ const LineChart = ({ id, days }) => {
   };
 
   const fetchLineGraph = useCallback(async () => {
+    const cacheKey = `${id}-${days}`;
+    if (cache[cacheKey]) {
+      // Use cached data if available
+      setGraphData(cache[cacheKey]);
+      return;
+    }
+
     const url = `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=${days}&precision=2`;
     try {
       const fetchedData = await fetch(url);
@@ -67,11 +75,13 @@ const LineChart = ({ id, days }) => {
       }
       const jsonData = await fetchedData.json();
       setGraphData(jsonData.prices);
+      // Update cache
+      setCache((prevCache) => ({ ...prevCache, [cacheKey]: jsonData.prices }));
     } catch (error) {
       console.error('Unable to fetch graphData', error);
       setError(error.message);
     }
-  }, [id, days]);
+  }, [id, days, cache]);
 
   useEffect(() => {
     fetchLineGraph();
