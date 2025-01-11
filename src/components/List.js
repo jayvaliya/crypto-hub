@@ -27,7 +27,7 @@ const List = () => {
       console.error('Unable to fetch data:', err);
       setError(err.message);
     }
-  }, [page]);
+  }, [page, data.length]);
 
   useEffect(() => {
     fetchData();
