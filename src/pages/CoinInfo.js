@@ -15,17 +15,17 @@ const CoinInfo = () => {
     try {
       setLoading(true);
       setError(null);
-      console.log('Fetching data....');
+      // console.log('Fetching data....');
       const fetchedData = await fetch(url);
       if (!fetchedData.ok) {
         throw new Error('Network response was not ok');
       }
       const jsondata = await fetchedData.json();
       setData(jsondata);
-      console.log(jsondata);
+      // console.log(jsondata);
     } catch (err) {
-      console.log('Unable to fetch data...!!  :<');
-      console.log(err);
+      // console.log('Unable to fetch data...!!  :<');
+      // console.log(err);
       setError('Unable to fetch data');
     } finally {
       setLoading(false);

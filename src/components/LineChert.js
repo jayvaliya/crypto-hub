@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Chart from 'react-apexcharts';
+import { useRecoilState } from 'recoil';
+import { LinechartCaching } from '../store';
 
 const LineChart = ({ id, days }) => {
-  console.log('id', id);
   const [graphData, setGraphData] = useState([]);
   const [error, setError] = useState(null);
-  const [cache, setCache] = useState({});
+  const [cache, setCache] = useRecoilState(LinechartCaching);
 
   const options = {
     chart: {
@@ -62,7 +63,6 @@ const LineChart = ({ id, days }) => {
   const fetchLineGraph = useCallback(async () => {
     const cacheKey = `${id}-${days}`;
     if (cache[cacheKey]) {
-      // Use cached data if available
       setGraphData(cache[cacheKey]);
       return;
     }
@@ -75,13 +75,12 @@ const LineChart = ({ id, days }) => {
       }
       const jsonData = await fetchedData.json();
       setGraphData(jsonData.prices);
-      // Update cache
       setCache((prevCache) => ({ ...prevCache, [cacheKey]: jsonData.prices }));
     } catch (error) {
       console.error('Unable to fetch graphData', error);
       setError(error.message);
     }
-  }, [id, days, cache]);
+  }, [id, days, cache, setCache]);
 
   useEffect(() => {
     fetchLineGraph();

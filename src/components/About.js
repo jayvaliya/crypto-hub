@@ -1,8 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { AboutCaching } from '../store';
+import { useRecoilState } from 'recoil';
 
 const About = ({ data }) => {
   const htmlRef = useRef();
   const [en, setEn] = useState('');
+  const [cache, setCache] = useRecoilState(AboutCaching);
 
   useEffect(() => {
     if (!data) {
@@ -10,8 +13,17 @@ const About = ({ data }) => {
     }
 
     const { description } = data;
-    setEn(description && description.en);
-  }, [data]);
+
+    const cacheKey = data.id; // Assuming `data.id` is a unique identifier for the data
+
+    if (cache[cacheKey]) {
+      setEn(cache[cacheKey]);
+    } else {
+      setEn(description && description.en);
+      // Cache the fetched data
+      setCache((prevCache) => ({ ...prevCache, [cacheKey]: description.en }));
+    }
+  }, [data, cache, setCache]);
 
   useEffect(() => {
     if (htmlRef.current && en) {

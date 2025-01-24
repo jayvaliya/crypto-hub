@@ -14,7 +14,7 @@ export default function Chart({ data, id }) {
   var imgLink;
   if (data && data.image && data.image.small) {
     imgLink = data.image.small;
-    console.log('Current Price in USD:', currentPriceUSD);
+    // console.log('Current Price in USD:', currentPriceUSD);
   }
   return (
     <div className='container mx-auto'>
@@ -24,9 +24,7 @@ export default function Chart({ data, id }) {
             <img loading='lazy' src={imgLink} className='w-12 h-12' alt='img' />
             <div className='flex flex-col justify-center md:pl-2 mt-1'>
               <div className='flex gap-0'>
-                <div className='text-xl font-semibold'>
-                  {name}
-                </div>
+                <div className='text-xl font-semibold'>{name}</div>
                 <div className='text-base'>{symbol}</div>
               </div>
             </div>
@@ -92,7 +90,7 @@ export default function Chart({ data, id }) {
                 }`}
                 onClick={() => {
                   setDays(item);
-                  console.log(days);
+                  // console.log(days);
                 }}>
                 {item}
               </button>

@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useRecoilState } from 'recoil';
+import { PerformanceCaching } from '../store';
 
 function Performance({ data }) {
   const [low, setLow] = useState(null);
@@ -9,12 +11,13 @@ function Performance({ data }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const [cache, setCache] = useRecoilState(PerformanceCaching);
+
   const fetchWithRetry = useCallback(async (url, retries = 3, delay = 1000) => {
     try {
       const response = await fetch(url);
       if (!response.ok) {
         if (response.status === 429 && retries > 0) {
-          // Too Many Requests - wait and retry
           await new Promise((resolve) => setTimeout(resolve, delay));
           return fetchWithRetry(url, retries - 1, delay * 2);
         }
@@ -33,6 +36,19 @@ function Performance({ data }) {
   useEffect(() => {
     const fetchMarketData = async () => {
       try {
+        const cacheKey = `${data.id}-1d`;
+
+        if (cache[cacheKey]) {
+          const cachedData = cache[cacheKey];
+          setLow(cachedData.low);
+          setHigh(cachedData.high);
+          setCurrent(cachedData.current);
+          setLow52w(cachedData.low52w);
+          setHigh52w(cachedData.high52w);
+          setLoading(false);
+          return;
+        }
+
         const marketData = await fetchWithRetry(
           `https://api.coingecko.com/api/v3/coins/${data.id}/market_chart?vs_currency=usd&days=1`
         );
@@ -42,8 +58,8 @@ function Performance({ data }) {
         }
 
         const prices = marketData.prices.map((price) => price[1]);
-        setLow(Math.min(...prices));
-        setHigh(Math.max(...prices));
+        const low = Math.min(...prices);
+        const high = Math.max(...prices);
 
         const currentData = await fetchWithRetry(
           `https://api.coingecko.com/api/v3/coins/${data.id}?localization=false&tickers=false&market_data=true`
@@ -56,7 +72,7 @@ function Performance({ data }) {
           throw new Error('Current data is empty or invalid');
         }
 
-        setCurrent(currentData.market_data.current_price.usd);
+        const current = currentData.market_data.current_price.usd;
 
         const yearMarketData = await fetchWithRetry(
           `https://api.coingecko.com/api/v3/coins/${data.id}/market_chart?vs_currency=usd&days=365`
@@ -67,9 +83,24 @@ function Performance({ data }) {
         }
 
         const yearPrices = yearMarketData.prices.map((price) => price[1]);
-        setLow52w(Math.min(...yearPrices));
-        setHigh52w(Math.max(...yearPrices));
+        const low52w = Math.min(...yearPrices);
+        const high52w = Math.max(...yearPrices);
 
+        const newData = {
+          low,
+          high,
+          current,
+          low52w,
+          high52w,
+        };
+
+        setCache((prevCache) => ({ ...prevCache, [cacheKey]: newData }));
+
+        setLow(low);
+        setHigh(high);
+        setCurrent(current);
+        setLow52w(low52w);
+        setHigh52w(high52w);
         setLoading(false);
       } catch (error) {
         console.error('Error:', error);
@@ -81,7 +112,7 @@ function Performance({ data }) {
     if (data.id) {
       fetchMarketData();
     }
-  }, [data.id, fetchWithRetry]);
+  }, [data.id, fetchWithRetry, cache, setCache]);
 
   if (loading) {
     return <div>Loading...</div>;

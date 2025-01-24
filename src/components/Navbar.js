@@ -4,7 +4,9 @@ import logo from '../images/logo.png';
 
 const NavigationItem = ({ label, to }) => (
   <li>
-    <Link className='text-white transition hover:text-teal-300 hover:border-b-2 hover:border-teal-300 ' to={to}>
+    <Link
+      className='text-white transition hover:text-teal-300 hover:border-b-2 hover:border-teal-300 '
+      to={to}>
       {label}
     </Link>
   </li>
@@ -19,7 +21,7 @@ const Navbar = () => {
 
   const navigationItems = [
     { label: 'Home', to: '/' },
-    { label: 'Crypto Texes', to: '/Taxes' },
+    { label: 'Crypto Taxes', to: '/Taxes' },
     { label: 'Resource Center', to: '/Resources' },
   ];
 
@@ -28,7 +30,7 @@ const Navbar = () => {
       <div className='mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8'>
         <div className='flex h-16 items-center justify-between'>
           <div className='md:flex md:items-center md:gap-12'>
-            <Link to="/" className='flex items-center gap-3'>
+            <Link to='/' className='flex items-center gap-3'>
               <img className='w-12 h-12' src={logo} alt='Logo' />
               <span className='text-2xl font-semibold'>Crypto Hub</span>
             </Link>
@@ -74,11 +76,7 @@ const Navbar = () => {
           <nav aria-label='Global'>
             <ul className='flex flex-col items-center gap-6 text-base font-medium'>
               {navigationItems.map((item, index) => (
-                <NavigationItem
-                  key={index}
-                  label={item.label}
-                  to={item.to}
-                />
+                <NavigationItem key={index} label={item.label} to={item.to} />
               ))}
             </ul>
           </nav>
