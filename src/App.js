@@ -15,7 +15,7 @@ function App() {
         <RecoilRoot>
           <Navbar />
           <WarningBox />
-          <Routes>
+          <Routes className='pt-5'>
             <Route path='/' element={<Home />} />
             <Route path='/coin/:id' element={<CoinInfo />} />
             <Route path='/Taxes' element={<Tax />} />

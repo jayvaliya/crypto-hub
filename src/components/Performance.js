@@ -115,17 +115,32 @@ function Performance({ data }) {
   }, [data.id, fetchWithRetry, cache, setCache]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className='bg-zinc-800 rounded-xl shadow-lg border border-zinc-700 p-6 mb-6'>
+        <h2 className='text-2xl font-bold text-white mb-4'>Performance</h2>
+        <div className='flex justify-center items-center h-40'>
+          <div className='w-8 h-8 border-t-2 border-teal-400 border-solid rounded-full animate-spin'></div>
+          <span className='ml-3 text-teal-400'>Loading price data...</span>
+        </div>
+      </div>
+    );
   }
 
   if (error) {
-    return <div>{error}</div>;
+    return (
+      <div className='bg-zinc-800 rounded-xl shadow-lg border border-zinc-700 p-6 mb-6'>
+        <h2 className='text-2xl font-bold text-white mb-4'>Performance</h2>
+        <div className='bg-red-500/20 text-white p-4 rounded-lg border border-red-500'>
+          <p>Error loading performance data: {error}</p>
+        </div>
+      </div>
+    );
   }
 
   const formatPrice = (price) =>
     Number(price).toLocaleString(undefined, {
       minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
+      maximumFractionDigits: 8,
     });
 
   const calculatePercentage = (low, high, current) =>
@@ -135,43 +150,52 @@ function Performance({ data }) {
   const percentage52w = calculatePercentage(low52w, high52w, current);
 
   return (
-    <div className='Performance Card cardLeft bg-transparent text-white p-5 rounded-lg my-5'>
-      <h1 className='text-2xl font-bold'>Performance</h1>
-      <div className='flex flex-col space-y-4'>
-        <div className='space-x-4'>
-          <div className='text-left'>
-            <p className='font-semibold'>Today's Low</p>
-            <p className='text-green-500'>${formatPrice(low)}</p>
-          </div>
-          <div className='relative flex-1 h-1 bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 m-2'>
-            <div className='absolute left-0 top-0 bottom-0 w-2 bg-black'></div>
-            <div
-              className='absolute transform -translate-x-1/2 w-10 h-10 text-center'
-              style={{ left: `${percentage24h}%` }}>
-              ▲ ${formatPrice(current)}
+    <div className='bg-zinc-800 rounded-xl shadow-lg border border-zinc-700 p-6 mb-6'>
+      <h2 className='text-2xl font-bold text-white mb-4'>Performance</h2>
+      <div className='space-y-8'>
+        <div className='space-y-2'>
+          <div className='flex justify-between items-center mb-1'>
+            <div>
+              <p className='text-gray-400 text-sm'>Today's Low</p>
+              <p className='text-white font-medium'>${formatPrice(low)}</p>
+            </div>
+            <div className='text-right'>
+              <p className='text-gray-400 text-sm'>Today's High</p>
+              <p className='text-white font-medium'>${formatPrice(high)}</p>
             </div>
           </div>
-          <div className='text-right'>
-            <p className='font-semibold'>Today's High</p>
-            <p className='text-green-500'>${formatPrice(high)}</p>
+          <div className='relative h-2 bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 rounded-full'>
+            <div
+              className='absolute -top-6 transform -translate-x-1/2 flex flex-col items-center'
+              style={{ left: `${Math.max(0, Math.min(100, percentage24h))}%` }}>
+              <div className='text-xs text-white bg-zinc-700 px-2 py-1 rounded whitespace-nowrap'>
+                ${formatPrice(current)}
+              </div>
+              <div className='w-0 h-0 border-l-[5px] border-l-transparent border-r-[5px] border-r-transparent border-t-[5px] border-zinc-700'></div>
+            </div>
           </div>
         </div>
-        <div className='space-x-4'>
-          <div className='text-left'>
-            <p className='font-semibold'>52W Low</p>
-            <p className='text-green-500'>${formatPrice(low52w)}</p>
-          </div>
-          <div className='relative flex-1 h-1 bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 m-2'>
-            <div className='absolute left-0 top-0 bottom-0 w-2 bg-black'></div>
-            <div
-              className='absolute transform -translate-x-1/2 w-10 h-10 text-center'
-              style={{ left: `${percentage52w}%` }}>
-              ▲ ${formatPrice(current)}
+
+        <div className='space-y-2'>
+          <div className='flex justify-between items-center mb-1'>
+            <div>
+              <p className='text-gray-400 text-sm'>52W Low</p>
+              <p className='text-white font-medium'>${formatPrice(low52w)}</p>
+            </div>
+            <div className='text-right'>
+              <p className='text-gray-400 text-sm'>52W High</p>
+              <p className='text-white font-medium'>${formatPrice(high52w)}</p>
             </div>
           </div>
-          <div className='text-right'>
-            <p className='font-semibold'>52W High</p>
-            <p className='text-green-500'>${formatPrice(high52w)}</p>
+          <div className='relative h-2 bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 rounded-full'>
+            <div
+              className='absolute -top-6 transform -translate-x-1/2 flex flex-col items-center'
+              style={{ left: `${Math.max(0, Math.min(100, percentage52w))}%` }}>
+              <div className='text-xs text-white bg-zinc-700 px-2 py-1 rounded whitespace-nowrap'>
+                ${formatPrice(current)}
+              </div>
+              <div className='w-0 h-0 border-l-[5px] border-l-transparent border-r-[5px] border-r-transparent border-t-[5px] border-zinc-700'></div>
+            </div>
           </div>
         </div>
       </div>

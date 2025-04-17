@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import LineChart from './SparklineChart';
 
 const List = () => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [error, setError] = useState(null);
-
+  const navigate = useNavigate();
   const cache = useRef({});
 
   const fetchData = useCallback(async () => {
@@ -50,6 +50,10 @@ const List = () => {
     }
   };
 
+  const handleRowClick = (id) => {
+    navigate(`/coin/${id}`);
+  };
+
   return (
     <>
       {error ? (
@@ -76,44 +80,30 @@ const List = () => {
                   {data.map((item) => (
                     <tr
                       key={item.id}
-                      className='min-h-[100px] md:text-lg hover:bg-zinc-800'>
+                      onClick={() => handleRowClick(item.id)}
+                      className='min-h-[100px] md:text-lg hover:bg-zinc-800 cursor-pointer relative'>
+                      <td>{item.market_cap_rank}</td>
                       <td>
-                        <Link to={`/coin/${item.id}`}>
-                          {item.market_cap_rank}
-                        </Link>
-                      </td>
-                      <td>
-                        <Link
-                          to={`/coin/${item.id}`}
-                          className='flex items-center gap-4'>
+                        <div className='flex items-center gap-4'>
                           <img src={item.image} className='h-8 w-8' alt='' />
                           <div>{item.symbol.toUpperCase()}</div>
-                        </Link>
+                        </div>
                       </td>
-                      <td>
-                        <Link to={`/coin/${item.id}`}>{item.name}</Link>
-                      </td>
-                      <td>
-                        <Link to={`/coin/${item.id}`}>
-                          ${item.current_price.toFixed(2)}
-                        </Link>
-                      </td>
+                      <td>{item.name}</td>
+                      <td>${item.current_price.toFixed(2)}</td>
                       <td
                         className={`${
                           item.price_change_percentage_1h_in_currency >= 0
                             ? 'text-green-600'
                             : 'text-red-600'
                         }`}>
-                        <Link to={`/coin/${item.id}`}>
-                          {item.price_change_percentage_1h_in_currency !==
-                            null &&
-                          item.price_change_percentage_1h_in_currency !==
-                            undefined
-                            ? item.price_change_percentage_1h_in_currency.toFixed(
-                                3
-                              )
-                            : 'N/A'}
-                        </Link>
+                        {item.price_change_percentage_1h_in_currency !== null &&
+                        item.price_change_percentage_1h_in_currency !==
+                          undefined
+                          ? item.price_change_percentage_1h_in_currency.toFixed(
+                              3
+                            )
+                          : 'N/A'}
                         %
                       </td>
                       <td
@@ -122,16 +112,14 @@ const List = () => {
                             ? 'text-green-600'
                             : 'text-red-600'
                         }`}>
-                        <Link to={`/coin/${item.id}`}>
-                          {item.price_change_percentage_24h_in_currency !==
-                            null &&
-                          item.price_change_percentage_24h_in_currency !==
-                            undefined
-                            ? item.price_change_percentage_24h_in_currency.toFixed(
-                                3
-                              )
-                            : 'N/A'}
-                        </Link>
+                        {item.price_change_percentage_24h_in_currency !==
+                          null &&
+                        item.price_change_percentage_24h_in_currency !==
+                          undefined
+                          ? item.price_change_percentage_24h_in_currency.toFixed(
+                              3
+                            )
+                          : 'N/A'}
                         %
                       </td>
                       <td
@@ -140,24 +128,17 @@ const List = () => {
                             ? 'text-green-600'
                             : 'text-red-600'
                         }`}>
-                        <Link to={`/coin/${item.id}`}>
-                          {item.price_change_percentage_7d_in_currency !==
-                            null &&
-                          item.price_change_percentage_7d_in_currency !==
-                            undefined
-                            ? item.price_change_percentage_7d_in_currency.toFixed(
-                                3
-                              )
-                            : 'N/A'}
-                        </Link>
+                        {item.price_change_percentage_7d_in_currency !== null &&
+                        item.price_change_percentage_7d_in_currency !==
+                          undefined
+                          ? item.price_change_percentage_7d_in_currency.toFixed(
+                              3
+                            )
+                          : 'N/A'}
                         %
                       </td>
-                      <td>
-                        <Link to={`/coin/${item.id}`}>
-                          ${item.market_cap.toLocaleString()}
-                        </Link>
-                      </td>
-                      <td>
+                      <td>${item.market_cap.toLocaleString()}</td>
+                      <td onClick={(e) => e.stopPropagation()}>
                         <LineChart sparkline={item.sparkline_in_7d} />
                       </td>
                     </tr>

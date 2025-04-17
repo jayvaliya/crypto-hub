@@ -21,8 +21,8 @@ const LineChart = ({ sparkline }) => {
         stops: [0, 100],
         gradientToColors: ['#0d9488'],
         inverseColors: true,
-        shade: 'vertical'
-      }
+        shade: 'vertical',
+      },
     },
     tooltip: {
       shared: false,
@@ -41,7 +41,7 @@ const LineChart = ({ sparkline }) => {
   };
 
   return (
-    <div className='app mx-auto w-fit hover:cursor-none'>
+    <div className='app mx-auto w-fit'>
       <Chart
         options={chartOptions}
         series={chartOptions.series}

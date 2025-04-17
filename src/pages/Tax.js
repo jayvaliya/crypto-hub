@@ -1,10 +1,11 @@
 import React from 'react';
 import TaxCalculator from '../components/TaxCalculator';
 import CryptoTaxInfo from '../components/CryptoTaxInfo';
+
 export default function Tax() {
   return (
     <>
-      <div className='flex flex-col lg:flex-row'>
+      <div className={`flex flex-col lg:flex-row mt-16 transition-all`}>
         <div className='w-full lg:w-2/3'>
           <CryptoTaxInfo />
         </div>

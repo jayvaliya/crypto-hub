@@ -2,8 +2,8 @@ import React from 'react';
 
 const ResourceCenter = () => {
   return (
-    <div className='max-w-7xl mx-auto p-8 my-10 text-white rounded-lg shadow-md'>
-      <h2 className='text-4xl font-bold mb-10'>Resource Center</h2>
+    <div className='max-w-7xl mx-auto p-8 my-16 text-white rounded-lg shadow-md'>
+      <h2 className='text-4xl font-bold mb-10'>Resource Center {'(2025)'}</h2>
 
       {/* Educational Articles Section */}
       <section className='mb-16'>
@@ -15,110 +15,96 @@ const ResourceCenter = () => {
         </p>
         <a
           href='https://www.coindesk.com/learn/'
-          className='bg-teal-500 text-black px-4 font-semibold py-2 rounded mb-8 inline-block'
+          className='bg-teal-500 text-black px-4 font-semibold py-2 rounded mb-8 inline-block hover:bg-teal-600 transition-colors'
           target='_blank'
           rel='noopener noreferrer'>
           Read Articles
         </a>
         <div className='space-y-4'>
-          <div className='bg-zinc-800 p-4 rounded'>
-            <h4 className='text-2xl font-semibold'>Understanding Blockchain</h4>
-            <p className='text-lg'>
-              A comprehensive guide to how blockchain technology works, its
-              advantages, and potential applications across various industries.
-              Learn about the fundamentals of blockchain, consensus mechanisms,
-              and more.
-            </p>
-            <a
-              href='https://www.ibm.com/blockchain/what-is-blockchain'
-              className='text-teal-400'
-              target='_blank'
-              rel='noopener noreferrer'>
-              Read more
-            </a>
-          </div>
-          <div className='bg-zinc-800 p-4 rounded'>
+          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
             <h4 className='text-2xl font-semibold'>
-              How to Start Trading Bitcoin
+              Understanding Web3 and the Decentralized Internet
             </h4>
             <p className='text-lg'>
-              Step-by-step instructions on how to begin trading Bitcoin,
-              including selecting an exchange, setting up an account, and
-              executing trades. This article also covers risk management
-              strategies and trading tips.
+              Learn how Web3 technologies are transforming the internet through
+              blockchain, decentralized applications, and tokenization. Explore
+              the shift from centralized platforms to user-owned digital
+              infrastructure.
             </p>
             <a
-              href='https://www.investopedia.com/articles/forex/091814/how-trade-bitcoin.asp'
-              className='text-teal-400'
+              href='https://ethereum.org/en/web3/'
+              className='text-teal-400 hover:text-teal-300 transition-colors'
               target='_blank'
               rel='noopener noreferrer'>
               Read more
             </a>
           </div>
-          <div className='bg-zinc-800 p-4 rounded'>
-            <h4 className='text-2xl font-semibold'>What is Ethereum?</h4>
-            <p className='text-lg'>
-              An introduction to Ethereum, its unique features such as smart
-              contracts, and its impact on the cryptocurrency ecosystem.
-              Discover the difference between Ethereum and Bitcoin, and explore
-              the potential of decentralized applications (DApps).
-            </p>
-            <a
-              href='https://ethereum.org/en/what-is-ethereum/'
-              className='text-teal-400'
-              target='_blank'
-              rel='noopener noreferrer'>
-              Read more
-            </a>
-          </div>
-          <div className='bg-zinc-800 p-4 rounded'>
+          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
             <h4 className='text-2xl font-semibold'>
-              The Impact of Cryptocurrency on the Global Economy
+              Advanced Trading Strategies for Crypto Markets
             </h4>
             <p className='text-lg'>
-              An analysis of how cryptocurrencies are influencing the global
-              economy, including effects on financial markets, international
-              trade, and economic policies. Learn about the potential benefits
-              and challenges of widespread crypto adoption.
+              Discover sophisticated trading techniques for cryptocurrency
+              markets, including technical analysis patterns, on-chain metrics,
+              and market sentiment indicators. Learn how professional traders
+              navigate volatile market conditions.
             </p>
             <a
-              href='https://www.forbes.com/sites/forbestechcouncil/2021/08/09/the-impact-of-cryptocurrency-on-the-global-economy/?sh=6f46f6753d57'
-              className='text-teal-400'
+              href='https://www.binance.com/en/blog/markets/advanced-trading-strategies-to-navigate-the-crypto-markets-421499824684903899'
+              className='text-teal-400 hover:text-teal-300 transition-colors'
               target='_blank'
               rel='noopener noreferrer'>
               Read more
             </a>
           </div>
-          <div className='bg-zinc-800 p-4 rounded'>
+          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
             <h4 className='text-2xl font-semibold'>
-              Decentralized Finance (DeFi): An Overview
+              Zero-Knowledge Proofs Explained
             </h4>
             <p className='text-lg'>
-              A detailed look at decentralized finance (DeFi) and its
-              significance in the crypto ecosystem. Explore how DeFi platforms
-              work, the benefits they offer, and the potential risks involved.
+              An introduction to zero-knowledge proofs, the cryptographic method
+              enabling private transactions on blockchain networks. Understand
+              how ZK-rollups and ZK-SNARKs are revolutionizing blockchain
+              scalability and privacy.
             </p>
             <a
-              href='https://www.coinbase.com/learn/crypto-basics/what-is-defi'
-              className='text-teal-400'
+              href='https://ethereum.org/en/zero-knowledge-proofs/'
+              className='text-teal-400 hover:text-teal-300 transition-colors'
               target='_blank'
               rel='noopener noreferrer'>
               Read more
             </a>
           </div>
-          <div className='bg-zinc-800 p-4 rounded'>
+          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
             <h4 className='text-2xl font-semibold'>
-              Smart Contracts: Revolutionizing Digital Agreements
+              The Evolution of Central Bank Digital Currencies (CBDCs)
             </h4>
             <p className='text-lg'>
-              An in-depth exploration of smart contracts, their functionality,
-              and their transformative potential in various industries.
-              Understand how smart contracts can automate and secure digital
-              agreements.
+              Explore how central banks worldwide are developing digital
+              currencies and their potential impact on the global financial
+              system. Learn about the differences between CBDCs and
+              cryptocurrencies, and what they mean for the future of money.
             </p>
             <a
-              href='https://www.investopedia.com/terms/s/smart-contracts.asp'
-              className='text-teal-400'
+              href='https://www.imf.org/en/Publications/fintech-notes/Issues/2022/02/07/Behind-the-Scenes-of-Central-Bank-Digital-Currency-512174'
+              className='text-teal-400 hover:text-teal-300 transition-colors'
+              target='_blank'
+              rel='noopener noreferrer'>
+              Read more
+            </a>
+          </div>
+          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
+            <h4 className='text-2xl font-semibold'>
+              Real-world Blockchain Applications Beyond Finance
+            </h4>
+            <p className='text-lg'>
+              Discover how blockchain technology is transforming industries
+              beyond financial services, including supply chain management,
+              healthcare, identity verification, and intellectual property.
+            </p>
+            <a
+              href='https://hbr.org/2023/01/how-blockchain-can-help-companies-deliver-real-world-value'
+              className='text-teal-400 hover:text-teal-300 transition-colors'
               target='_blank'
               rel='noopener noreferrer'>
               Read more
@@ -138,58 +124,58 @@ const ResourceCenter = () => {
         </p>
         <a
           href='https://www.bitdegree.org/tutorials/'
-          className='bg-teal-500 text-black px-4 font-semibold py-2 rounded mb-8 inline-block'
+          className='bg-teal-500 text-black px-4 font-semibold py-2 rounded mb-8 inline-block hover:bg-teal-600 transition-colors'
           target='_blank'
           rel='noopener noreferrer'>
           View Tutorials
         </a>
         <div className='space-y-4'>
-          <div className='bg-zinc-800 p-4 rounded'>
+          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
             <h4 className='text-2xl font-semibold'>
-              How to Set Up a Crypto Wallet
+              How to Use Hardware Wallets Securely
             </h4>
             <p className='text-lg'>
-              Detailed instructions on setting up a secure crypto wallet,
-              choosing between hardware and software wallets, and tips for
-              keeping your funds safe.
+              A comprehensive guide to setting up and securely using hardware
+              wallets like Ledger and Trezor. Learn best practices for backup
+              procedures, firmware updates, and connection methods.
             </p>
             <a
-              href='https://www.coinbase.com/learn/crypto-basics/how-to-set-up-a-crypto-wallet'
-              className='text-teal-400'
+              href='https://www.ledger.com/academy/security/the-safest-way-to-use-hardware-wallets'
+              className='text-teal-400 hover:text-teal-300 transition-colors'
               target='_blank'
               rel='noopener noreferrer'>
               Read more
             </a>
           </div>
-          <div className='bg-zinc-800 p-4 rounded'>
+          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
             <h4 className='text-2xl font-semibold'>
-              How to Buy Bitcoin on Binance
+              Setting Up and Using Decentralized Exchanges (DEXs)
             </h4>
             <p className='text-lg'>
-              A complete guide to purchasing Bitcoin on a popular exchange,
-              including account verification, depositing funds, and placing your
-              first order.
+              Learn how to trade cryptocurrencies on decentralized exchanges,
+              including connecting your wallet, understanding liquidity pools,
+              managing slippage, and avoiding common pitfalls.
             </p>
             <a
-              href='https://www.binance.com/en/support/faq/360033162192'
-              className='text-teal-400'
+              href='https://academy.binance.com/en/articles/what-is-a-decentralized-exchange-dex'
+              className='text-teal-400 hover:text-teal-300 transition-colors'
               target='_blank'
               rel='noopener noreferrer'>
               Read more
             </a>
           </div>
-          <div className='bg-zinc-800 p-4 rounded'>
+          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
             <h4 className='text-2xl font-semibold'>
-              Guide to Staking Cryptocurrencies
+              Complete Guide to NFT Creation and Trading
             </h4>
             <p className='text-lg'>
-              Learn how to stake your cryptocurrencies for passive income. This
-              guide covers the basics of staking, choosing the right assets, and
-              understanding the risks involved.
+              Step-by-step instructions for creating, buying, and selling NFTs
+              across different blockchains. Learn about minting processes,
+              marketplace fees, and strategies for NFT collectors and creators.
             </p>
             <a
-              href='https://www.coinbase.com/learn/crypto-basics/what-is-staking'
-              className='text-teal-400'
+              href='https://nft-now.com/guides/nft-guide'
+              className='text-teal-400 hover:text-teal-300 transition-colors'
               target='_blank'
               rel='noopener noreferrer'>
               Read more
@@ -208,57 +194,59 @@ const ResourceCenter = () => {
         </p>
         <a
           href='https://www.coinbase.com/learn/crypto-basics'
-          className='bg-teal-500 text-black px-4 font-semibold py-2 rounded mb-8 inline-block'
+          className='bg-teal-500 text-black px-4 font-semibold py-2 rounded mb-8 inline-block hover:bg-teal-600 transition-colors'
           target='_blank'
           rel='noopener noreferrer'>
           View FAQs
         </a>
         <div className='space-y-4'>
-          <div className='bg-zinc-800 p-4 rounded'>
+          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
             <h4 className='text-2xl font-semibold'>
-              What is a cryptocurrency?
+              How do layer 2 scaling solutions work?
             </h4>
             <p className='text-lg'>
-              An overview of what cryptocurrencies are, how they work, and why
-              they are important. This FAQ covers the basics of digital
-              currencies and their use cases.
+              Learn about layer 2 solutions like Optimistic Rollups, ZK-Rollups,
+              and State Channels that help blockchain networks process more
+              transactions with lower fees while maintaining security.
             </p>
             <a
-              href='https://www.investopedia.com/terms/c/cryptocurrency.asp'
-              className='text-teal-400'
+              href='https://ethereum.org/en/layer-2/'
+              className='text-teal-400 hover:text-teal-300 transition-colors'
               target='_blank'
               rel='noopener noreferrer'>
               Read more
             </a>
           </div>
-          <div className='bg-zinc-800 p-4 rounded'>
+          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
             <h4 className='text-2xl font-semibold'>
-              How are crypto gains taxed in India?
+              What are the latest crypto tax regulations globally?
             </h4>
             <p className='text-lg'>
-              Detailed information on the taxation of cryptocurrency gains in
-              India, including short-term and long-term capital gains tax rates,
-              and reporting requirements.
+              A comprehensive overview of cryptocurrency taxation rules across
+              major jurisdictions, including recent changes to reporting
+              requirements, capital gains treatment, and international tax
+              compliance.
             </p>
             <a
-              href='https://cleartax.in/s/cryptocurrency-taxation'
-              className='text-teal-400'
+              href='https://cryptotax.io/global-crypto-tax-report-2025/'
+              className='text-teal-400 hover:text-teal-300 transition-colors'
               target='_blank'
               rel='noopener noreferrer'>
               Read more
             </a>
           </div>
-          <div className='bg-zinc-800 p-4 rounded'>
+          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
             <h4 className='text-2xl font-semibold'>
-              What is the best wallet for beginners?
+              How do I protect myself from crypto scams?
             </h4>
             <p className='text-lg'>
-              Recommendations for the best cryptocurrency wallets for beginners,
-              highlighting the features and benefits of each option.
+              Essential security practices to avoid common cryptocurrency scams,
+              including phishing attempts, fake exchanges, compromised smart
+              contracts, and social engineering tactics.
             </p>
             <a
-              href='https://www.nerdwallet.com/article/investing/cryptocurrency-wallets'
-              className='text-teal-400'
+              href='https://www.consumer.ftc.gov/articles/what-know-about-cryptocurrency-and-scams'
+              className='text-teal-400 hover:text-teal-300 transition-colors'
               target='_blank'
               rel='noopener noreferrer'>
               Read more
@@ -277,54 +265,58 @@ const ResourceCenter = () => {
         </p>
         <a
           href='https://blockgeeks.com/guides/'
-          className='bg-teal-500 text-black px-4 font-semibold py-2 rounded mb-8 inline-block'
+          className='bg-teal-500 text-black px-4 font-semibold py-2 rounded mb-8 inline-block hover:bg-teal-600 transition-colors'
           target='_blank'
           rel='noopener noreferrer'>
           Download Now
         </a>
         <div className='space-y-4'>
-          <div className='bg-zinc-800 p-4 rounded'>
+          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
             <h4 className='text-2xl font-semibold'>
-              The Ultimate Guide to Cryptocurrencies
+              The Future of Digital Assets: Trends and Predictions for 2025-2030
             </h4>
             <p className='text-lg'>
-              A comprehensive e-book on everything you need to know about
-              cryptocurrencies, from their history to their future potential.
+              An in-depth research report on emerging trends in the digital
+              asset space, including institutional adoption patterns, regulatory
+              developments, and technological innovations.
             </p>
             <a
-              href='https://www.coindesk.com/learn/ultimate-guide-to-cryptocurrency'
-              className='text-teal-400'
+              href='https://www.blockchain-council.org/blockchain/blockchain-trends/'
+              className='text-teal-400 hover:text-teal-300 transition-colors'
               target='_blank'
               rel='noopener noreferrer'>
               Read more
             </a>
           </div>
-          <div className='bg-zinc-800 p-4 rounded'>
-            <h4 className='text-2xl font-semibold'>Blockchain for Business</h4>
+          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
+            <h4 className='text-2xl font-semibold'>
+              Decentralized Identity Systems
+            </h4>
             <p className='text-lg'>
-              An in-depth look at how blockchain technology is being used in
-              business, including case studies and real-world applications.
+              A comprehensive whitepaper on blockchain-based identity solutions,
+              self-sovereign identity, and their applications in digital
+              authentication, privacy protection, and credential verification.
             </p>
             <a
-              href='https://hbr.org/2017/01/the-truth-about-blockchain'
-              className='text-teal-400'
+              href='https://www.w3.org/TR/did-core/'
+              className='text-teal-400 hover:text-teal-300 transition-colors'
               target='_blank'
               rel='noopener noreferrer'>
               Read more
             </a>
           </div>
-          <div className='bg-zinc-800 p-4 rounded'>
+          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
             <h4 className='text-2xl font-semibold'>
-              Crypto Taxation Explained
+              Global Regulatory Framework for Digital Assets
             </h4>
             <p className='text-lg'>
-              A detailed whitepaper on the taxation of cryptocurrencies,
-              covering global tax laws, compliance requirements, and strategies
-              for minimizing tax liabilities.
+              A detailed analysis of cryptocurrency regulations worldwide,
+              including licensing requirements, compliance standards, and
+              emerging regulatory trends across major financial markets.
             </p>
             <a
-              href='https://www2.deloitte.com/content/dam/Deloitte/us/Documents/financial-services/us-fsi-taxation-cryptocurrency.pdf'
-              className='text-teal-400'
+              href='https://www.weforum.org/whitepapers/navigating-cryptocurrency-regulation-the-evolving-global-regulatory-landscape/'
+              className='text-teal-400 hover:text-teal-300 transition-colors'
               target='_blank'
               rel='noopener noreferrer'>
               Read more
@@ -343,55 +335,57 @@ const ResourceCenter = () => {
         </p>
         <a
           href='https://www.reddit.com/r/cryptocurrency/'
-          className='bg-teal-500 text-black px-4 font-semibold py-2 rounded mb-8 inline-block'
+          className='bg-teal-500 text-black px-4 font-semibold py-2 rounded mb-8 inline-block hover:bg-teal-600 transition-colors'
           target='_blank'
           rel='noopener noreferrer'>
           Join Community
         </a>
         <div className='space-y-4'>
-          <div className='bg-zinc-800 p-4 rounded'>
-            <h4 className='text-2xl font-semibold'>Forums</h4>
+          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
+            <h4 className='text-2xl font-semibold'>Developer Communities</h4>
             <p className='text-lg'>
-              Discuss and share your thoughts on various crypto topics in our
-              forums. Connect with other enthusiasts and get your questions
-              answered by the community.
+              Connect with blockchain developers, participate in hackathons, and
+              access technical resources for building decentralized applications
+              and smart contracts.
             </p>
             <a
-              href='https://bitcointalk.org/'
-              className='text-teal-400'
+              href='https://ethereum.org/en/developers/'
+              className='text-teal-400 hover:text-teal-300 transition-colors'
               target='_blank'
               rel='noopener noreferrer'>
-              Join Forums
+              Join Developer Community
             </a>
           </div>
-          <div className='bg-zinc-800 p-4 rounded'>
-            <h4 className='text-2xl font-semibold'>Support Center</h4>
+          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
+            <h4 className='text-2xl font-semibold'>Crypto Research Groups</h4>
             <p className='text-lg'>
-              Get help and support for any issues or questions you might have.
-              Our support team is here to assist you with any crypto-related
-              inquiries.
+              Access academic and industry research on blockchain technology,
+              tokenomics, and cryptography. Connect with researchers advancing
+              the theoretical foundations of the crypto ecosystem.
             </p>
             <a
-              href='https://support.binance.com/hc/en-us'
-              className='text-teal-400'
+              href='https://nakamoto.com/'
+              className='text-teal-400 hover:text-teal-300 transition-colors'
               target='_blank'
               rel='noopener noreferrer'>
-              Visit Support Center
+              Explore Research
             </a>
           </div>
-          <div className='bg-zinc-800 p-4 rounded'>
-            <h4 className='text-2xl font-semibold'>Events</h4>
+          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
+            <h4 className='text-2xl font-semibold'>
+              Global Conferences and Meetups
+            </h4>
             <p className='text-lg'>
-              Participate in our community events, webinars, and meetups. Stay
-              updated with the latest happenings and network with fellow crypto
-              enthusiasts.
+              Discover upcoming blockchain and cryptocurrency conferences,
+              workshops, and networking events happening in your region and
+              around the world.
             </p>
             <a
               href='https://www.coindesk.com/events'
-              className='text-teal-400'
+              className='text-teal-400 hover:text-teal-300 transition-colors'
               target='_blank'
               rel='noopener noreferrer'>
-              View Events
+              Find Events
             </a>
           </div>
         </div>
