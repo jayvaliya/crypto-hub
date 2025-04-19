@@ -116,7 +116,7 @@ function Performance({ data }) {
 
   if (loading) {
     return (
-      <div className='bg-zinc-800 rounded-xl shadow-lg border border-zinc-700 p-6 mb-6'>
+      <div className='bg-neutral-800 rounded-xl shadow-lg border border-neutral-700 p-6 mb-6'>
         <h2 className='text-2xl font-bold text-white mb-4'>Performance</h2>
         <div className='flex justify-center items-center h-40'>
           <div className='w-8 h-8 border-t-2 border-teal-400 border-solid rounded-full animate-spin'></div>
@@ -128,7 +128,7 @@ function Performance({ data }) {
 
   if (error) {
     return (
-      <div className='bg-zinc-800 rounded-xl shadow-lg border border-zinc-700 p-6 mb-6'>
+      <div className='bg-neutral-800 rounded-xl shadow-lg border border-neutral-700 p-6 mb-6'>
         <h2 className='text-2xl font-bold text-white mb-4'>Performance</h2>
         <div className='bg-red-500/20 text-white p-4 rounded-lg border border-red-500'>
           <p>Error loading performance data: {error}</p>
@@ -150,7 +150,7 @@ function Performance({ data }) {
   const percentage52w = calculatePercentage(low52w, high52w, current);
 
   return (
-    <div className='bg-zinc-800 rounded-xl shadow-lg border border-zinc-700 p-6 mb-6'>
+    <div className='bg-neutral-800 rounded-xl shadow-lg border border-neutral-700 p-6 mb-6'>
       <h2 className='text-2xl font-bold text-white mb-4'>Performance</h2>
       <div className='space-y-8'>
         <div className='space-y-2'>
@@ -168,10 +168,10 @@ function Performance({ data }) {
             <div
               className='absolute -top-6 transform -translate-x-1/2 flex flex-col items-center'
               style={{ left: `${Math.max(0, Math.min(100, percentage24h))}%` }}>
-              <div className='text-xs text-white bg-zinc-700 px-2 py-1 rounded whitespace-nowrap'>
+              <div className='text-xs text-white bg-neutral-700 px-2 py-1 rounded whitespace-nowrap'>
                 ${formatPrice(current)}
               </div>
-              <div className='w-0 h-0 border-l-[5px] border-l-transparent border-r-[5px] border-r-transparent border-t-[5px] border-zinc-700'></div>
+              <div className='w-0 h-0 border-l-[5px] border-l-transparent border-r-[5px] border-r-transparent border-t-[5px] border-neutral-700'></div>
             </div>
           </div>
         </div>
@@ -191,10 +191,10 @@ function Performance({ data }) {
             <div
               className='absolute -top-6 transform -translate-x-1/2 flex flex-col items-center'
               style={{ left: `${Math.max(0, Math.min(100, percentage52w))}%` }}>
-              <div className='text-xs text-white bg-zinc-700 px-2 py-1 rounded whitespace-nowrap'>
+              <div className='text-xs text-white bg-neutral-700 px-2 py-1 rounded whitespace-nowrap'>
                 ${formatPrice(current)}
               </div>
-              <div className='w-0 h-0 border-l-[5px] border-l-transparent border-r-[5px] border-r-transparent border-t-[5px] border-zinc-700'></div>
+              <div className='w-0 h-0 border-l-[5px] border-l-transparent border-r-[5px] border-r-transparent border-t-[5px] border-neutral-700'></div>
             </div>
           </div>
         </div>

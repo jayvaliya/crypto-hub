@@ -56,7 +56,7 @@ const CryptoTaxInfo = () => {
           falls on the person responsible for paying consideration to the
           resident seller.
         </p>
-        <div className='mt-6 p-4 bg-zinc-800 rounded-lg'>
+        <div className='mt-6 p-4 bg-neutral-800 rounded-lg'>
           <h4 className='text-xl font-semibold mb-2'>
             Important TDS Exemptions
           </h4>
@@ -81,7 +81,7 @@ const CryptoTaxInfo = () => {
           attract 18% GST. The transactions are treated as supply of goods or
           services, depending on the nature of the transaction.
         </p>
-        <div className='bg-zinc-800 p-4 rounded'>
+        <div className='bg-neutral-800 p-4 rounded'>
           <h4 className='text-xl font-semibold mb-2'>GST Categorization</h4>
           <ul className='list-disc pl-6 space-y-2'>
             <li>

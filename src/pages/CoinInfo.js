@@ -33,7 +33,7 @@ const CoinInfo = () => {
   }, [fetchData]);
 
   return (
-    <div className='container mx-auto p-4 mt-16'>
+    <div className='container mx-auto p-4'>
       <div className='mb-6 mt-4'>
         <Link
           to={'/'}
@@ -60,7 +60,7 @@ const CoinInfo = () => {
       <div className='flex flex-col xl:flex-row gap-6'>
         <div className='w-full xl:w-2/3'>
           {loading ? (
-            <div className='flex justify-center items-center h-60 bg-zinc-800/60 backdrop-blur-sm rounded-xl shadow-lg border border-zinc-700'>
+            <div className='flex justify-center items-center h-60 bg-neutral-800/60 backdrop-blur-sm rounded-xl shadow-lg border border-neutral-700'>
               <div className='animate-pulse flex flex-col items-center'>
                 <div className='w-16 h-16 border-t-4 border-teal-400 border-solid rounded-full animate-spin'></div>
                 <p className='mt-4 text-teal-400'>Loading coin data...</p>
@@ -82,7 +82,7 @@ const CoinInfo = () => {
 
         <div className='w-full xl:w-1/3'>
           {!loading && !error && data && (
-            <div className='bg-zinc-800 rounded-xl shadow-lg border border-zinc-700 p-6 sticky top-20'>
+            <div className='bg-neutral-800 rounded-xl shadow-lg border border-neutral-700 p-6 sticky top-20'>
               <h2 className='text-xl font-bold mb-4 text-white'>
                 Coin Statistics
               </h2>
@@ -91,13 +91,13 @@ const CoinInfo = () => {
                 {data.market_data && (
                   <>
                     <div className='grid grid-cols-2 gap-4'>
-                      <div className='bg-zinc-700/50 p-4 rounded-lg'>
+                      <div className='bg-neutral-700/50 p-4 rounded-lg'>
                         <p className='text-sm text-gray-400'>Market Cap</p>
                         <p className='text-lg font-semibold text-white'>
                           ${data.market_data.market_cap.usd.toLocaleString()}
                         </p>
                       </div>
-                      <div className='bg-zinc-700/50 p-4 rounded-lg'>
+                      <div className='bg-neutral-700/50 p-4 rounded-lg'>
                         <p className='text-sm text-gray-400'>24h Volume</p>
                         <p className='text-lg font-semibold text-white'>
                           ${data.market_data.total_volume.usd.toLocaleString()}
@@ -106,7 +106,7 @@ const CoinInfo = () => {
                     </div>
 
                     <div className='grid grid-cols-2 gap-4'>
-                      <div className='bg-zinc-700/50 p-4 rounded-lg'>
+                      <div className='bg-neutral-700/50 p-4 rounded-lg'>
                         <p className='text-sm text-gray-400'>
                           Circulating Supply
                         </p>
@@ -115,7 +115,7 @@ const CoinInfo = () => {
                           {data.symbol.toUpperCase()}
                         </p>
                       </div>
-                      <div className='bg-zinc-700/50 p-4 rounded-lg'>
+                      <div className='bg-neutral-700/50 p-4 rounded-lg'>
                         <p className='text-sm text-gray-400'>Total Supply</p>
                         <p className='text-lg font-semibold text-white'>
                           {data.market_data.total_supply
@@ -126,7 +126,7 @@ const CoinInfo = () => {
                       </div>
                     </div>
 
-                    <div className='bg-zinc-700/50 p-4 rounded-lg'>
+                    <div className='bg-neutral-700/50 p-4 rounded-lg'>
                       <p className='text-sm text-gray-400'>All-Time High</p>
                       <div className='flex justify-between items-end'>
                         <p className='text-lg font-semibold text-white'>
@@ -151,7 +151,7 @@ const CoinInfo = () => {
                       </p>
                     </div>
 
-                    <div className='bg-zinc-700/50 p-4 rounded-lg'>
+                    <div className='bg-neutral-700/50 p-4 rounded-lg'>
                       <p className='text-sm text-gray-400'>All-Time Low</p>
                       <div className='flex justify-between items-end'>
                         <p className='text-lg font-semibold text-white'>
@@ -210,7 +210,7 @@ const CoinInfo = () => {
                           href={data.links.blockchain_site[0]}
                           target='_blank'
                           rel='noopener noreferrer'
-                          className='bg-zinc-600 hover:bg-zinc-700 text-white px-3 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-1'>
+                          className='bg-neutral-600 hover:bg-neutral-700 text-white px-3 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-1'>
                           <svg
                             xmlns='http://www.w3.org/2000/svg'
                             className='h-4 w-4'
@@ -233,7 +233,7 @@ const CoinInfo = () => {
                           href={data.links.subreddit_url}
                           target='_blank'
                           rel='noopener noreferrer'
-                          className='bg-orange-600 hover:bg-orange-700 text-white px-3 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-1'>
+                          className='bg-teal-600 hover:bg-teal-700 text-white px-3 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-1'>
                           <svg
                             xmlns='http://www.w3.org/2000/svg'
                             className='h-4 w-4'

@@ -81,7 +81,7 @@ const List = () => {
                     <tr
                       key={item.id}
                       onClick={() => handleRowClick(item.id)}
-                      className='min-h-[100px] md:text-lg hover:bg-zinc-800 cursor-pointer relative'>
+                      className='min-h-[100px] md:text-lg hover:bg-neutral-800 cursor-pointer relative'>
                       <td>{item.market_cap_rank}</td>
                       <td>
                         <div className='flex items-center gap-4'>

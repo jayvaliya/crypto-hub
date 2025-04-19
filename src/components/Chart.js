@@ -4,7 +4,7 @@ import LineChert from './LineChert';
 
 export default function Chart({ data, id }) {
   const [days, setDays] = useState('14');
-  const [graphType, setGraphType] = useState('line');
+  const [graphType, setGraphType] = useState('candlestick');
   const daysList = ['1', '7', '14', '30', '90', '180', '365', 'max'];
   const name = data.name;
   const symbol = data.symbol;
@@ -14,7 +14,7 @@ export default function Chart({ data, id }) {
   let imgLink = data?.image?.small || '';
 
   return (
-    <div className='bg-zinc-800 rounded-xl shadow-lg border border-zinc-700 p-6 mb-6'>
+    <div className='bg-neutral-800 rounded-xl shadow-lg border border-neutral-700 p-6 mb-6'>
       <div className='flex flex-col md:flex-row md:items-center justify-between mb-6'>
         <div className='flex items-center'>
           <img
@@ -31,7 +31,7 @@ export default function Chart({ data, id }) {
           </div>
         </div>
         <div className='flex items-center mt-4 md:mt-0'>
-          <div className='bg-zinc-700 text-white text-sm font-semibold rounded-lg px-4 py-2 shadow-inner'>
+          <div className='bg-neutral-700 text-white text-sm font-semibold rounded-lg px-4 py-2 shadow-inner'>
             Rank #{data.market_cap_rank || 'N/A'}
           </div>
         </div>
@@ -65,7 +65,7 @@ export default function Chart({ data, id }) {
         </div>
       </div>
 
-      <div className='h-px bg-zinc-700 mb-6' />
+      <div className='h-px bg-neutral-700 mb-6' />
 
       <div className='flex flex-col lg:flex-row justify-between items-center gap-4 mb-6'>
         <div className='font-bold text-lg text-white'>
@@ -73,37 +73,37 @@ export default function Chart({ data, id }) {
         </div>
 
         <div className='flex flex-wrap items-center gap-4 justify-center'>
-          <div className='flex items-center gap-2 bg-zinc-700/50 px-3 py-1 rounded-lg'>
-            <span className='text-sm text-gray-300'>Graph:</span>
-            <button
-              onClick={() => setGraphType('line')}
-              className={`px-3 py-1 text-sm rounded-md transition-colors ${
-                graphType === 'line'
-                  ? 'bg-teal-600 text-white font-medium'
-                  : 'text-gray-300 hover:bg-zinc-600'
-              }`}>
-              Line
-            </button>
+          <div className='flex items-center gap-2 bg-neutral-700/50 px-3 py-1 rounded-lg'>
+            <span className='text-sm text-teal-300'>Graph:</span>
             <button
               onClick={() => setGraphType('candlestick')}
               className={`px-3 py-1 text-sm rounded-md transition-colors ${
                 graphType === 'candlestick'
                   ? 'bg-teal-600 text-white font-medium'
-                  : 'text-gray-300 hover:bg-zinc-600'
+                  : 'text-gray-300 hover:bg-neutral-600'
               }`}>
               Candle
             </button>
+            <button
+              onClick={() => setGraphType('line')}
+              className={`px-3 py-1 text-sm rounded-md transition-colors ${
+                graphType === 'line'
+                  ? 'bg-teal-600 text-white font-medium'
+                  : 'text-gray-300 hover:bg-neutral-600'
+              }`}>
+              Line
+            </button>
           </div>
 
-          <div className='flex items-center gap-1 flex-wrap bg-zinc-700/50 px-3 py-1 rounded-lg'>
-            <span className='text-sm text-gray-300 mr-1'>Days:</span>
+          <div className='flex items-center gap-1 flex-wrap bg-neutral-700/50 px-3 py-1 rounded-lg'>
+            <span className='text-sm text-teal-300 mr-1'>Days:</span>
             {daysList.map((item) => (
               <button
                 key={item}
                 className={`px-2 py-1 text-xs rounded-md transition-colors ${
                   item === days
                     ? 'bg-teal-600 text-white font-medium'
-                    : 'text-gray-300 hover:bg-zinc-600'
+                    : 'text-gray-300 hover:bg-neutral-600'
                 }`}
                 onClick={() => setDays(item)}>
                 {item === 'max' ? 'Max' : item}

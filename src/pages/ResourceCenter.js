@@ -21,7 +21,7 @@ const ResourceCenter = () => {
           Read Articles
         </a>
         <div className='space-y-4'>
-          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
+          <div className='bg-neutral-800 p-4 rounded hover:bg-neutral-700 transition-colors'>
             <h4 className='text-2xl font-semibold'>
               Understanding Web3 and the Decentralized Internet
             </h4>
@@ -39,7 +39,7 @@ const ResourceCenter = () => {
               Read more
             </a>
           </div>
-          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
+          <div className='bg-neutral-800 p-4 rounded hover:bg-neutral-700 transition-colors'>
             <h4 className='text-2xl font-semibold'>
               Advanced Trading Strategies for Crypto Markets
             </h4>
@@ -57,7 +57,7 @@ const ResourceCenter = () => {
               Read more
             </a>
           </div>
-          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
+          <div className='bg-neutral-800 p-4 rounded hover:bg-neutral-700 transition-colors'>
             <h4 className='text-2xl font-semibold'>
               Zero-Knowledge Proofs Explained
             </h4>
@@ -75,7 +75,7 @@ const ResourceCenter = () => {
               Read more
             </a>
           </div>
-          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
+          <div className='bg-neutral-800 p-4 rounded hover:bg-neutral-700 transition-colors'>
             <h4 className='text-2xl font-semibold'>
               The Evolution of Central Bank Digital Currencies (CBDCs)
             </h4>
@@ -93,7 +93,7 @@ const ResourceCenter = () => {
               Read more
             </a>
           </div>
-          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
+          <div className='bg-neutral-800 p-4 rounded hover:bg-neutral-700 transition-colors'>
             <h4 className='text-2xl font-semibold'>
               Real-world Blockchain Applications Beyond Finance
             </h4>
@@ -130,7 +130,7 @@ const ResourceCenter = () => {
           View Tutorials
         </a>
         <div className='space-y-4'>
-          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
+          <div className='bg-neutral-800 p-4 rounded hover:bg-neutral-700 transition-colors'>
             <h4 className='text-2xl font-semibold'>
               How to Use Hardware Wallets Securely
             </h4>
@@ -147,7 +147,7 @@ const ResourceCenter = () => {
               Read more
             </a>
           </div>
-          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
+          <div className='bg-neutral-800 p-4 rounded hover:bg-neutral-700 transition-colors'>
             <h4 className='text-2xl font-semibold'>
               Setting Up and Using Decentralized Exchanges (DEXs)
             </h4>
@@ -164,7 +164,7 @@ const ResourceCenter = () => {
               Read more
             </a>
           </div>
-          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
+          <div className='bg-neutral-800 p-4 rounded hover:bg-neutral-700 transition-colors'>
             <h4 className='text-2xl font-semibold'>
               Complete Guide to NFT Creation and Trading
             </h4>
@@ -200,7 +200,7 @@ const ResourceCenter = () => {
           View FAQs
         </a>
         <div className='space-y-4'>
-          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
+          <div className='bg-neutral-800 p-4 rounded hover:bg-neutral-700 transition-colors'>
             <h4 className='text-2xl font-semibold'>
               How do layer 2 scaling solutions work?
             </h4>
@@ -217,7 +217,7 @@ const ResourceCenter = () => {
               Read more
             </a>
           </div>
-          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
+          <div className='bg-neutral-800 p-4 rounded hover:bg-neutral-700 transition-colors'>
             <h4 className='text-2xl font-semibold'>
               What are the latest crypto tax regulations globally?
             </h4>
@@ -235,7 +235,7 @@ const ResourceCenter = () => {
               Read more
             </a>
           </div>
-          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
+          <div className='bg-neutral-800 p-4 rounded hover:bg-neutral-700 transition-colors'>
             <h4 className='text-2xl font-semibold'>
               How do I protect myself from crypto scams?
             </h4>
@@ -271,7 +271,7 @@ const ResourceCenter = () => {
           Download Now
         </a>
         <div className='space-y-4'>
-          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
+          <div className='bg-neutral-800 p-4 rounded hover:bg-neutral-700 transition-colors'>
             <h4 className='text-2xl font-semibold'>
               The Future of Digital Assets: Trends and Predictions for 2025-2030
             </h4>
@@ -288,7 +288,7 @@ const ResourceCenter = () => {
               Read more
             </a>
           </div>
-          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
+          <div className='bg-neutral-800 p-4 rounded hover:bg-neutral-700 transition-colors'>
             <h4 className='text-2xl font-semibold'>
               Decentralized Identity Systems
             </h4>
@@ -305,7 +305,7 @@ const ResourceCenter = () => {
               Read more
             </a>
           </div>
-          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
+          <div className='bg-neutral-800 p-4 rounded hover:bg-neutral-700 transition-colors'>
             <h4 className='text-2xl font-semibold'>
               Global Regulatory Framework for Digital Assets
             </h4>
@@ -341,7 +341,7 @@ const ResourceCenter = () => {
           Join Community
         </a>
         <div className='space-y-4'>
-          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
+          <div className='bg-neutral-800 p-4 rounded hover:bg-neutral-700 transition-colors'>
             <h4 className='text-2xl font-semibold'>Developer Communities</h4>
             <p className='text-lg'>
               Connect with blockchain developers, participate in hackathons, and
@@ -356,7 +356,7 @@ const ResourceCenter = () => {
               Join Developer Community
             </a>
           </div>
-          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
+          <div className='bg-neutral-800 p-4 rounded hover:bg-neutral-700 transition-colors'>
             <h4 className='text-2xl font-semibold'>Crypto Research Groups</h4>
             <p className='text-lg'>
               Access academic and industry research on blockchain technology,
@@ -371,7 +371,7 @@ const ResourceCenter = () => {
               Explore Research
             </a>
           </div>
-          <div className='bg-zinc-800 p-4 rounded hover:bg-zinc-700 transition-colors'>
+          <div className='bg-neutral-800 p-4 rounded hover:bg-neutral-700 transition-colors'>
             <h4 className='text-2xl font-semibold'>
               Global Conferences and Meetups
             </h4>

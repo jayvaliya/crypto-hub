@@ -75,7 +75,7 @@ const TaxCalculator = () => {
   };
 
   return (
-    <div className='max-w-lg w-[90%] mx-auto p-6 m-5 bg-zinc-800 text-white rounded-lg shadow-md'>
+    <div className='max-w-lg w-[90%] mx-auto p-6 m-5 bg-neutral-800 text-white rounded-lg shadow-md'>
       <h2 className='text-2xl font-bold mb-4'>
         India Crypto Tax Calculator (2025)
       </h2>
@@ -89,7 +89,7 @@ const TaxCalculator = () => {
           <select
             value={transactionType}
             onChange={(e) => setTransactionType(e.target.value)}
-            className='w-full p-2 border border-gray-600 bg-zinc-700 text-white rounded mt-1'>
+            className='w-full p-2 border border-gray-600 bg-neutral-700 text-white rounded mt-1'>
             <option value=''>Select</option>
             <option value='Sale'>Sale</option>
             <option value='Transfer'>Transfer to Another Wallet</option>
@@ -105,7 +105,7 @@ const TaxCalculator = () => {
             <select
               value={incomeCategory}
               onChange={(e) => setIncomeCategory(e.target.value)}
-              className='w-full p-2 border border-gray-600 bg-zinc-700 text-white rounded mt-1'>
+              className='w-full p-2 border border-gray-600 bg-neutral-700 text-white rounded mt-1'>
               <option value=''>Select</option>
               <option value='Business'>Business Income</option>
               <option value='Other'>Income from Other Sources</option>
@@ -120,7 +120,7 @@ const TaxCalculator = () => {
             value={quantity}
             onChange={(e) => setQuantity(e.target.value)}
             placeholder='Number of tokens/coins'
-            className='w-full p-2 border border-gray-600 bg-zinc-700 text-white rounded mt-1'
+            className='w-full p-2 border border-gray-600 bg-neutral-700 text-white rounded mt-1'
           />
         </div>
 
@@ -134,7 +134,7 @@ const TaxCalculator = () => {
               value={purchasePrice}
               onChange={(e) => setPurchasePrice(e.target.value)}
               placeholder='Price per unit when acquired'
-              className='w-full p-2 border border-gray-600 bg-zinc-700 text-white rounded mt-1'
+              className='w-full p-2 border border-gray-600 bg-neutral-700 text-white rounded mt-1'
             />
           </div>
         )}
@@ -150,7 +150,7 @@ const TaxCalculator = () => {
             value={sellingPrice}
             onChange={(e) => setSellingPrice(e.target.value)}
             placeholder='Price per unit'
-            className='w-full p-2 border border-gray-600 bg-zinc-700 text-white rounded mt-1'
+            className='w-full p-2 border border-gray-600 bg-neutral-700 text-white rounded mt-1'
           />
         </div>
 
@@ -164,7 +164,7 @@ const TaxCalculator = () => {
               value={holdingPeriod}
               onChange={(e) => setHoldingPeriod(e.target.value)}
               placeholder='Number of months held'
-              className='w-full p-2 border border-gray-600 bg-zinc-700 text-white rounded mt-1'
+              className='w-full p-2 border border-gray-600 bg-neutral-700 text-white rounded mt-1'
             />
           </div>
         )}
@@ -182,7 +182,7 @@ const TaxCalculator = () => {
             Tax Calculation Results
           </h3>
 
-          <div className='bg-zinc-700 p-4 rounded-lg mb-4'>
+          <div className='bg-neutral-700 p-4 rounded-lg mb-4'>
             <div className='flex justify-between mb-2'>
               <span>Total Purchase Value:</span>
               <span>₹{taxBreakdown.purchaseValue.toFixed(2)}</span>

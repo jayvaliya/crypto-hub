@@ -102,7 +102,7 @@ const About = ({ data }) => {
   const isPlainText = desc && !/<[a-z][\s\S]*>/i.test(desc);
 
   return (
-    <div className='bg-zinc-800 rounded-xl shadow-lg border border-zinc-700 p-6 mb-6'>
+    <div className='bg-neutral-800 rounded-xl shadow-lg border border-neutral-700 p-6 mb-6'>
       {desc ? (
         <>
           <h2 className='text-2xl font-bold text-white mb-4'>
@@ -119,12 +119,12 @@ const About = ({ data }) => {
               )}
             </div>
             {!expanded && (
-              <div className='absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-zinc-800 to-transparent pointer-events-none' />
+              <div className='absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-neutral-800 to-transparent pointer-events-none' />
             )}
           </div>
           <button
             onClick={() => setExpanded((e) => !e)}
-            className='mt-4 bg-zinc-700 hover:bg-zinc-600 text-white px-4 py-2 rounded-lg transition-colors text-sm flex items-center gap-2 mx-auto focus:outline-none focus:ring-2 focus:ring-teal-400'>
+            className='mt-4 bg-neutral-700 hover:bg-neutral-600 text-white px-4 py-2 rounded-lg transition-colors text-sm flex items-center gap-2 mx-auto focus:outline-none focus:ring-2 focus:ring-teal-400'>
             {expanded ? (
               <>
                 <svg
