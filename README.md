@@ -1,5 +1,7 @@
 # 🪙 Crypto Hub - Cryptocurrency Dashboard
 
+🚀 **Live Demo:** [www.cryptohub.jayvaliya.me](https://cryptohub.jayvaliya.me/)
+
 A comprehensive, real-time cryptocurrency dashboard that provides live market data, interactive charts, tax calculators, and educational resources for crypto enthusiasts and investors.
 
 ![React](https://img.shields.io/badge/React-18.2.0-blue.svg)
@@ -23,10 +25,6 @@ A comprehensive, real-time cryptocurrency dashboard that provides live market da
 ## 🌟 Overview
 
 Crypto Hub is a modern, responsive web application built with React.js that serves as a one-stop solution for cryptocurrency market analysis. The application fetches real-time data from the CoinGecko API and presents it through an intuitive user interface with interactive charts and comprehensive market insights.
-
-### Live Demo
-
-Check out the live version: [Demo Link Here]
 
 ## ✨ Features
 
@@ -138,7 +136,7 @@ crypto-hub/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/crypto-hub.git
+   git clone https://github.com/jayvaliya/crypto-hub.git
    cd crypto-hub
    ```
 
