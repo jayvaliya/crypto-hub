@@ -1,6 +1,6 @@
 # 🪙 Crypto Hub - Cryptocurrency Dashboard
 
-🚀 **Live Demo:** [www.cryptohub.jayvaliya.me](https://cryptohub.jayvaliya.me/)
+🚀 **Live Demo:** [www.cryptohub.jayvaliya.com](https://cryptohub.jayvaliya.com/)
 
 A comprehensive, real-time cryptocurrency dashboard that provides live market data, interactive charts, tax calculators, and educational resources for crypto enthusiasts and investors.
 
